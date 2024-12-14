@@ -6,11 +6,12 @@ using namespace std;
 
 #include "client.h"
 
-void read_file_client(char file_name[30])
+void read_file_client(char file_name[30], struct Client *list_clients)
 {
     FILE *file;
     char file_path[100];
-    struct Client c;
+    //struct Client c;
+    int num_cl;
 
     strcpy(file_path, "data/");
     strcat(file_path, file_name);
@@ -19,12 +20,11 @@ void read_file_client(char file_name[30])
 
     if (file)
     {   
-        cout<< "\n" << setw(5) << "Code" << setw(10) << "Name" << setw(5) << "Age" << setw(10) << "Salary" <<endl;
-        for (int i = 0; i < get_num_clients(); i++)
+        fscanf(file, "%d\n", &num_clients);
+        
+        for (int i = 0; i < num_clients; i++)
         {
-            fscanf(file, "%d %s %d %lf\n", &(c.code), &(c.name), &(c.age), &(c.salary));
-            cout<<left;
-            cout<< setw(5) << c.code << setw(10) << c.name << setw(5) << c.age << setw(10) << c.salary <<endl;
+            fscanf(file, "%d %s %d %lf\n", &(list_clients[i].code), &(list_clients[i].name), &(list_clients[i].age), &(list_clients[i].salary));
         };
     }
     else {cout<< "Error to open file\n" << endl;};

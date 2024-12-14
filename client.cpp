@@ -35,8 +35,9 @@ void menu_clients(int *opt, struct Client *list_clients)
                 insert_client(&list_clients[get_num_clients()]);
                 print_clients_file(list_clients);
                 break;
-            case 2: //read
-                read_file_client("client.txt");
+            case 2: //read and print
+                read_file_client("client.txt", list_clients);
+                print_list_clients(list_clients);
                 break;
             case 3: //update
                 update_client(search_name, list_clients);
@@ -107,22 +108,22 @@ int search_client(char *search_name, struct Client *list_clients)
     };
 
     return pos;
-}
-
-struct Client get_client(int pos, struct Client *list_clients)
-{
-    if (pos != -1) {return list_clients[pos];}
-    else {return default_client();};
 };
 
-struct Client default_client()
+void print_client(struct Client c)
 {
-    struct Client c;
+    cout<<left;
+    cout<< setw(5) << c.code << setw(10) << c.name << setw(5) << c.age << setw(10) << c.salary <<endl;
+};
 
-    c.code = 0;
-    c.name[0] = '\0';
+void print_list_clients(struct Client *list_clients)
+{
+    cout<< "\n" << setw(5) << "Code" << setw(10) << "Name" << setw(5) << "Age" << setw(10) << "Salary" <<endl;
 
-    return c;
+    for (int i = 0; i < get_num_clients(); i++)
+    {
+        print_client(list_clients[i]);
+    };
 };
 
 void update_client(char *search_name, struct Client *list_clients)
@@ -165,7 +166,7 @@ void delete_client(char *search_name, struct Client *list_clients)
 
     if (pos != -1)
     {
-        for (int i = 0; i < get_num_clients(); i++)
+        for (int i = pos; i < get_num_clients(); i++)
         {
             list_clients[i] = list_clients[i+1];
         };
