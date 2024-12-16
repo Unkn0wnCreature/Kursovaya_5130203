@@ -414,10 +414,7 @@ void search_books(struct Book *list_books)
         case CATEGORY:
             search_by_category(list_books);
             break;
-    }
-
-    cout << "\n" << setw(10) << "Code" << setw(20) << "Author" << setw(20) << "Title" << setw(10)
-    << "Stock" << setw(10) << "Price" << setw(10) << "Year" << setw(10) << "Category" << endl;
+    } 
 }
 
 void search_by_author(struct Book *list_books)
@@ -425,6 +422,9 @@ void search_by_author(struct Book *list_books)
     char author[40];
     cout << "Author: ";
     cin >> author;
+
+    cout << "\n" << setw(10) << "Code" << setw(20) << "Author" << setw(20) << "Title" << setw(10)
+    << "Stock" << setw(10) << "Price" << setw(10) << "Year" << setw(10) << "Category" << endl;
 
     for (int i = 0; i < get_num_books(); i++)
     {
@@ -440,6 +440,9 @@ void search_by_title(struct Book *list_books)
     char title[40];
     cout << "Title: ";
     cin >> title;
+
+    cout << "\n" << setw(10) << "Code" << setw(20) << "Author" << setw(20) << "Title" << setw(10)
+    << "Stock" << setw(10) << "Price" << setw(10) << "Year" << setw(10) << "Category" << endl;
 
     for (int i = 0; i < get_num_books(); i++)
     {
@@ -459,6 +462,9 @@ void search_by_price(struct Book *list_books)
         cin >> price;
     } while (price < 100 || price > 50000);
 
+    cout << "\n" << setw(10) << "Code" << setw(20) << "Author" << setw(20) << "Title" << setw(10)
+    << "Stock" << setw(10) << "Price" << setw(10) << "Year" << setw(10) << "Category" << endl;
+
     for (int i = 0; i < get_num_books(); i++)
     {
         if (list_books[i].price == price)
@@ -477,6 +483,9 @@ void search_by_year(struct Book *list_books)
         cin >> year;
     } while (year < 2000);
 
+    cout << "\n" << setw(10) << "Code" << setw(20) << "Author" << setw(20) << "Title" << setw(10)
+    << "Stock" << setw(10) << "Price" << setw(10) << "Year" << setw(10) << "Category" << endl;
+
     for (int i = 0; i < get_num_books(); i++)
     {
         if (list_books[i].year == year)
@@ -494,6 +503,9 @@ void search_by_category(struct Book *list_books)
         cout << "Category (0-FANTASY, 1-FANTASTIC, 2-ROMAN, 3-HISTORY): ";
         cin >> category;
     } while (category < 0 || category > 3);
+
+    cout << "\n" << setw(10) << "Code" << setw(20) << "Author" << setw(20) << "Title" << setw(10)
+    << "Stock" << setw(10) << "Price" << setw(10) << "Year" << setw(10) << "Category" << endl;
 
     for (int i = 0; i < get_num_books(); i++)
     {
