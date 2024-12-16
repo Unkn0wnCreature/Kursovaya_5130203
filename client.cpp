@@ -110,6 +110,25 @@ int search_client(char *search_name, struct Client *list_clients)
     return pos;
 };
 
+struct Client get_client(int pos, struct Client *list_clients)
+{
+    if (pos != -1)
+    {
+        return list_clients[pos];
+    }
+    else {return default_client();};
+};
+
+struct Client default_client()
+{
+    struct Client c;
+
+    c.code = 0;
+    c.name[0] = '\0';
+
+    return c;
+};
+
 void print_client(struct Client c)
 {
     cout<<left;
