@@ -63,7 +63,7 @@ void menu_master(int *opt){
     cout << "-----------------------------------------------"<<endl;
     cout << "\nSelect an option from [1-3] according to the menu:" << endl;
     cout << "[1]. Managment of Clients"<<endl;
-    cout << "[2]. Managment of Products"<<endl;
+    cout << "[2]. Managment of Books"<<endl;
     cout << "[3]. Managment of Orders"<<endl;
     cout << "-----------------------------------------------"<<endl;
     cout << "Enter option: ";
