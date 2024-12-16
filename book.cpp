@@ -39,6 +39,10 @@ void menu_books(int *opt, struct Book *list_books)
                 break;
             case 2: //read and print
                 read_file_book("book.txt", list_books);
+                sort_books_by_code(list_books);
+                clean_file("book.txt");
+                print_books_file(list_books);
+                read_file_book("book.txt", list_books);
                 print_list_books(list_books);
                 break;
             case 3: //update
@@ -531,4 +535,26 @@ int search_book_by_title(char *book_title, struct Book *list_books)
     };
 
     return pos;
+};
+
+void sort_books_by_code(struct Book *list_books)
+{
+    struct Book temp;
+
+    for (int i = 0; i < get_num_books() - 1; i++)
+    {
+        for (int j = i + 1; j < get_num_books(); j++)
+        {
+            if (list_books[i].code > list_books[j].code)
+            {
+                temp = list_books[i];
+                list_books[i] = list_books[j];
+                list_books[j] = temp;
+            }
+            else if (list_books[i].code == list_books[j].code)
+            {
+                (list_books[j].code)++;
+            };
+        };
+    };
 };

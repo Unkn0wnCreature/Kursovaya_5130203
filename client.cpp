@@ -37,10 +37,10 @@ void menu_clients(int *opt, struct Client *list_clients)
                 print_clients_file(list_clients);
                 break;
             case 2: //read and print
-                //read_file_client("client.txt", list_clients);
-                //sort_clients(list_clients);
-                //clean_file("client.txt");
-                //print_clients_file(list_clients);
+                read_file_client("client.txt", list_clients);
+                sort_clients(list_clients);
+                clean_file("client.txt");
+                print_clients_file(list_clients);
                 read_file_client("client.txt", list_clients);
                 print_list_clients(list_clients);
                 break;
@@ -209,7 +209,7 @@ void sort_clients(struct Client *list_clients)
 
     for (int i = 0; i < get_num_clients() - 1; i++)
     {
-        for (int j = 0; j < get_num_clients(); j++)
+        for (int j = i + 1; j < get_num_clients(); j++)
         {
             if (list_clients[i].code > list_clients[j].code)
             {
