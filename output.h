@@ -9,3 +9,7 @@ void print_clients_file(struct Client *list_clients);
 void print_file_book(const char file_name[30], struct Book b);
 void print_num_books(const char file_name[30], int num_books);
 void print_books_file(struct Book *list_books);
+
+void print_file_order(const char file_name[30], struct Order o);
+void print_num_orders(const char file_name[30], int num_orders);
+void print_orders_file(struct Order *list_orders);
