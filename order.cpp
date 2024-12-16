@@ -3,6 +3,8 @@
 #include <cstring>
 #include <cstdio>
 #include "order.h"
+#include "output.h"
+#include "input.h"
 
 using namespace std;
 
@@ -27,6 +29,7 @@ void menu_orders(int *opt, Client *list_clients, Book *list_books, Order *list_o
                 break;
             case 2:
                 print_list_orders(list_orders, num_orders);
+                print_orders_file(list_orders);
                 break;
             case 3: {
                 int code;
@@ -58,8 +61,8 @@ void insert_order(Order *ord, Client *list_clients, Book *list_books) {
     order_index++;
     ord->code = order_index;
 
-    cout << "Enter Client Name: ";
-    cin >> client_name;
+    //cout << "Enter Client Name: ";
+    //cin >> client_name;
     client_index = search_client(client_name, list_clients);
 
     if (client_index == -1) {
@@ -92,8 +95,8 @@ void insert_order_detail(OrderDetail *detail, Book *list_books) {
     int book_index;
 
     cout << "\n--- INSERT ORDER DETAIL ---\n";
-    cout << "Enter Book Title: ";
-    cin >> book_title;
+    //cout << "Enter Book Title: ";
+    //cin >> book_title;
 
     book_index = search_book(book_title, list_books);
     if (book_index == -1) {
