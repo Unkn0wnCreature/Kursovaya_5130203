@@ -7,7 +7,7 @@
 #include "input.h"
 using namespace std;
 
-static int num_clients = 0;
+int num_clients = 0;
 static int index = 0;
 
 void menu_clients(int *opt, struct Client *list_clients)
@@ -84,6 +84,7 @@ void insert_client(struct Client *c)
 
     num_clients++;
 };
+
 
 int get_num_clients()
 {

@@ -7,11 +7,12 @@ using namespace std;
 #include "client.h"
 #include "book.h"
 
+
 void read_file_client(const char file_name[30], struct Client *list_clients)
 {
     FILE *file;
     char file_path[100];
-    int num_books;
+    extern int num_clients;
 
     strcpy(file_path, "data/");
     strcat(file_path, file_name);
@@ -36,8 +37,7 @@ void read_file_book(const char file_name[30], struct Book *list_books)
 {
     FILE *file;
     char file_path[100];
-
-    int num_books;
+    extern int num_books;
 
     strcpy(file_path, "data/");
     strcat(file_path, file_name);

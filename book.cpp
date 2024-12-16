@@ -7,7 +7,7 @@
 #include "output.h"
 using namespace std;
 
-static int num_books = 0;
+int num_books = 0;
 static int index_b = 0;
 
 void menu_books(int *opt, struct Book *list_books)
