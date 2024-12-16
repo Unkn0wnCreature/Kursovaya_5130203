@@ -33,11 +33,15 @@ void menu_clients(int *opt, struct Client *list_clients)
         {
             case 1: //insert
                 insert_client(&list_clients[get_num_clients()]);
+                sort_clients(list_clients);
                 print_clients_file(list_clients);
                 break;
             case 2: //read and print
+                //read_file_client("client.txt", list_clients);
+                //sort_clients(list_clients);
+                //clean_file("client.txt");
+                //print_clients_file(list_clients);
                 read_file_client("client.txt", list_clients);
-                sort_clients(list_clients);
                 print_list_clients(list_clients);
                 break;
             case 3: //update
@@ -224,9 +228,6 @@ void sort_clients(struct Client *list_clients)
 int search_client_by_code(int client_code, struct Client *list_clients)
 {
     int pos;
-
-    cout<< "\nEnter client code: ";
-    cin>>client_code;
 
     for (int i = 0; i < get_num_clients(); i++)
     {

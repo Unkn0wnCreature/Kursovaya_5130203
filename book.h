@@ -34,3 +34,4 @@ void search_by_price(struct Book *list_books);
 void search_by_year(struct Book *list_books);
 void search_by_category(struct Book *list_books);
 void search_books(struct Book *list_books);
+int search_book_by_title(char *book_title, struct Book *list_books);

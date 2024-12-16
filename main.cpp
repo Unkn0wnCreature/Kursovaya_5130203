@@ -22,6 +22,10 @@ int main()
     list_books = new struct Book[MAX_BOOKS];
     list_orders = new struct Order[MAX_ORDERS];
 
+    for (int i = 0; i < get_num_orders(); i++) {
+        print_order(list_orders[i]);
+    }
+
     do
     {
         menu_master(&opt);
@@ -71,7 +75,7 @@ void menu_master(int *opt){
     cout <<endl;
 };
 
-
+/*
 //тест
 void test_read_orders() {
     Order list_orders[100];
@@ -87,3 +91,4 @@ void test_read_orders() {
         print_order(list_orders[i]);
     }
 }
+*/

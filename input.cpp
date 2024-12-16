@@ -105,14 +105,14 @@ void read_file_order(const char file_name[30], struct Order *list_orders, struct
             int quantity;
             double subtotal;
 
-            if (fscanf(file, " %39s %d %lf\n", book_title, &quantity, &subtotal) != 3) {
+            if (fscanf(file, " %s %d %lf\n", &book_title, &quantity, &subtotal) != 3) {
                 cout << "Error: Could not read order detail " << (j + 1) << " for order " << (i + 1) << ".\n";
                 fclose(file);
                 return;
             }
 
             // Ищем книгу по названию
-            int book_index = search_book(book_title, list_books);
+            int book_index = search_book_by_title(book_title, list_books);
             if (book_index != -1) {
                 list_orders[i].details[j].book = list_books[book_index];
                 list_orders[i].details[j].quantity = quantity;

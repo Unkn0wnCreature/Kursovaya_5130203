@@ -515,3 +515,20 @@ void search_by_category(struct Book *list_books)
         }
     }
 }
+
+int search_book_by_title(char *book_title, struct Book *list_books)
+{
+    int pos;
+
+    for (int i = 0; i < get_num_books(); i++)
+    {
+        if (strcmp(list_books[i].title, book_title) == 0)
+        {
+            pos = i;
+            break;
+        }
+        else {pos = -1;};
+    };
+
+    return pos;
+};
