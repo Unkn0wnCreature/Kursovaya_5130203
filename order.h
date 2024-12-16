@@ -4,23 +4,28 @@
 
 #define MAX_DETAILS 10
 
+// Структура для детали заказа
 struct OrderDetail {
-    Book book;
-    int quantity;
-    double subtotal;
+    Book book;          // Книга, связанная с заказом
+    int quantity;       // Количество экземпляров
+    double subtotal;    // Промежуточный итог = цена * количество
 };
 
+// Структура для заказа
 struct Order {
-    int code;
-    Client client;
-    OrderDetail details[MAX_DETAILS];
-    int num_details = 0;
-    double total = 0.0;
+    int code;                       // Уникальный код заказа
+    Client client;                  // Клиент, связанный с заказом
+    OrderDetail details[MAX_DETAILS]; // Массив деталей заказа
+    int num_details = 0;            // Количество деталей в заказе
+    double total = 0.0;             // Общая стоимость заказа
 };
 
+// Основные функции для управления заказами
 void menu_orders(int *opt, Client *list_clients, Book *list_books, Order *list_orders);
 void insert_order(Order *ord, Client *list_clients, Book *list_books);
-void insert_order_detail(OrderDetail *od, Book *list_books);
-void print_list_orders(Order *list_orders);
+void insert_order_detail(OrderDetail *detail, Book *list_books);
+void print_list_orders(const Order *list_orders, int num_orders);
 void print_order(const Order &ord);
+void delete_order(Order *list_orders, int *num_orders, int order_index);
 int get_num_orders();
+int search_order(const Order *list_orders, int num_orders, int order_code);
