@@ -11,7 +11,6 @@ void read_file_client(const char file_name[30], struct Client *list_clients)
 {
     FILE *file;
     char file_path[100];
-    //struct Client c;
     int num_clients;
 
     strcpy(file_path, "data/");
