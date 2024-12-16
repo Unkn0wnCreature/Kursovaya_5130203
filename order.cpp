@@ -116,6 +116,9 @@ void insert_order_detail(OrderDetail *detail, Book *list_books) {
     detail->subtotal = detail->quantity * detail->book.price;
     detail->book.stock -= detail->quantity;
 
+    // Уменьшение запаса книги
+    list_books[book_index].stock -= detail->quantity;
+
     cout << "Order detail added successfully.\n";
 }
 
