@@ -26,6 +26,7 @@ void insert_order(Order *ord, Client *list_clients, Book *list_books);
 void insert_order_detail(OrderDetail *detail, Book *list_books);
 void print_list_orders(const Order *list_orders, int num_orders);
 void print_order(const Order &ord);
-void delete_order(Order *list_orders, int *num_orders, int order_index);
+void delete_order(Order *list_orders, int order_index);
 int get_num_orders();
 int search_order(const Order *list_orders, int num_orders, int order_code);
+void sort_orders_by_code(struct Order *list_orders);

@@ -25,10 +25,14 @@ void menu_orders(int *opt, Client *list_clients, Book *list_books, Order *list_o
         switch (*opt) {
             case 1:
                 insert_order(&list_orders[get_num_orders()], list_clients, list_books);
-                num_orders++;
+                //sort_orders_by_code(list_orders);
                 print_orders_file(list_orders);
                 break;
             case 2:
+                //read_file_order("order.txt", list_orders, list_clients, list_books);
+                //sort_orders_by_code(list_orders);
+                //clean_file("order.txt");
+                //print_orders_file(list_orders);
                 read_file_order("order.txt", list_orders, list_clients, list_books);
                 print_list_orders(list_orders, num_orders);
                 break;
@@ -38,7 +42,7 @@ void menu_orders(int *opt, Client *list_clients, Book *list_books, Order *list_o
                 cin >> code;
                 int index = search_order(list_orders, num_orders, code);
                 if (index != -1) {
-                    delete_order(list_orders, &num_orders, index);
+                    delete_order(list_orders, index);
                 } else {
                     cout << "Order not found.\n";
                 }
@@ -86,6 +90,8 @@ void insert_order(Order *ord, Client *list_clients, Book *list_books) {
         cout << "Add another detail? (y/n): ";
         cin >> cont;
     } while (cont == 'y' || cont == 'Y');
+
+    num_orders++;
 
     cout << "Order inserted successfully.\n";
 }
@@ -150,11 +156,11 @@ void print_order(const Order &ord) {
 }
 
 // Удаление заказа
-void delete_order(Order *list_orders, int *num_orders, int order_index) {
-    for (int i = order_index; i < (*num_orders) - 1; i++) {
+void delete_order(Order *list_orders, int order_index) {
+    for (int i = order_index; i < get_num_orders() - 1; i++) {
         list_orders[i] = list_orders[i + 1];
     }
-    (*num_orders)--;
+    num_orders--;
     cout << "Order deleted successfully.\n";
 }
 
@@ -172,3 +178,25 @@ int search_order(const Order *list_orders, int num_orders, int order_code) {
 int get_num_orders() {
     return num_orders;
 }
+
+void sort_orders_by_code(struct Order *list_orders)
+{
+    struct Order temp;
+
+    for (int i = 0; i < get_num_orders() - 1; i++)
+    {
+        for (int j = i + 1; j < get_num_orders(); j++)
+        {
+            if (list_orders[i].code > list_orders[j].code)
+            {
+                temp = list_orders[i];
+                list_orders[i] = list_orders[j];
+                list_orders[j] = temp;
+            }
+            else if (list_orders[i].code == list_orders[j].code)
+            {
+                (list_orders[j].code)++;
+            };
+        };
+    };
+};
