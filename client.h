@@ -18,3 +18,6 @@ void print_client(struct Client c);
 void print_list_clients(struct Client *list_clients);
 void update_client(char *search_name, struct Client *list_clients);
 void delete_client(char *search_name, struct Client *list_clients);
+void sort_clients(struct Client *list_clients);
+int search_client_by_code(int client_code, struct Client *list_clients);
+//void codes_clients(struct Client *list_clients);

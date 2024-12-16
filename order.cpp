@@ -29,6 +29,7 @@ void menu_orders(int *opt, Client *list_clients, Book *list_books, Order *list_o
                 print_orders_file(list_orders);
                 break;
             case 2:
+                read_file_order("order.txt", list_orders, list_clients, list_books);
                 print_list_orders(list_orders, num_orders);
                 break;
             case 3: {

@@ -9,7 +9,7 @@ using namespace std;
 #include "order.h"
 
 
-void read_file_client(const char file_name[30], struct Client *list_clients)
+void read_file_client(char file_name[30], struct Client *list_clients)
 {
     FILE *file;
     char file_path[100];
