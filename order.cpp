@@ -3,9 +3,11 @@
 #include <cstring>
 #include <cstdio>
 #include "order.h"
+#include "book.h"
+#include "client.h"
 using namespace std;
 
-static int num_orders = 0;
+int num_orders = 0;
 static int index = 0;
 
 void menu_orders(int *opt, Client *list_clients, Book *list_books, Order *list_orders) {

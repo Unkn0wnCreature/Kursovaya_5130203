@@ -16,6 +16,8 @@ void menu_books(int *opt, struct Book *list_books);
 void insert_book(struct Book *b);
 int get_num_books();
 int search_book(char *search_title, struct Book *list_books);
+struct Book get_book(int pos, struct Book *list_books);
+struct Book default_book();
 void print_book(struct Book b);
 void print_list_books(struct Book *list_books);
 void update_book(char *search_title, struct Book *list_books);

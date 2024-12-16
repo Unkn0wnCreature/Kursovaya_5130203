@@ -137,6 +137,20 @@ int search_book(char *search_title, struct Book *list_books)
     return pos;
 }
 
+struct Book get_book(int pos, struct Book *list_books)
+{
+    if (pos != -1) {return list_books[pos];}
+    else {return default_book();};
+}
+
+struct Book default_book()
+{
+    struct Book b;
+    b.code = 0;
+    b.title[0] = '\0';
+    return b;
+}
+
 void print_book(struct Book b)
 {
     cout<<left;
