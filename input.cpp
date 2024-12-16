@@ -11,7 +11,7 @@ void read_file_client(const char file_name[30], struct Client *list_clients)
 {
     FILE *file;
     char file_path[100];
-    int num_clients;
+    int num_books;
 
     strcpy(file_path, "data/");
     strcat(file_path, file_name);
@@ -20,7 +20,7 @@ void read_file_client(const char file_name[30], struct Client *list_clients)
 
     if (file)
     {   
-        fscanf(file, "%d\n", &num_clients);
+        fscanf(file, "%d\n", &(num_clients));
         
         for (int i = 0; i < num_clients; i++)
         {
@@ -46,7 +46,7 @@ void read_file_book(const char file_name[30], struct Book *list_books)
 
     if (file)
     {   
-        fscanf(file, "%d\n", &num_books);
+        fscanf(file, "%d\n", &(num_books));
         
         for (int i = 0; i < num_books; i++)
         {
