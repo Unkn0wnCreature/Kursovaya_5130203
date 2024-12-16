@@ -74,21 +74,3 @@ void menu_master(int *opt){
     cin>> *opt;
     cout <<endl;
 };
-
-/*
-//тест
-void test_read_orders() {
-    Order list_orders[100];
-    Client list_clients[100];
-    Book list_books[100];
-
-    read_file_client("client.txt", list_clients);
-    read_file_book("book.txt", list_books);
-
-    read_file_order("order.txt", list_orders, list_clients, list_books);
-
-    for (int i = 0; i < get_num_orders(); i++) {
-        print_order(list_orders[i]);
-    }
-}
-*/
