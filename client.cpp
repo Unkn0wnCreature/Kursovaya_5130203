@@ -37,6 +37,7 @@ void menu_clients(int *opt, struct Client *list_clients)
                 break;
             case 2: //read and print
                 read_file_client("client.txt", list_clients);
+                //sort_clients(list_clients);
                 print_list_clients(list_clients);
                 break;
             case 3: //update
@@ -196,4 +197,46 @@ void delete_client(char *search_name, struct Client *list_clients)
         cout<< "\nClient deleted!" <<endl;
     }
     else {cout<< "\nClient not found!" <<endl;};
+};
+
+void sort_clients(struct Client *list_clients)
+{
+    struct Client temp;
+
+    for (int i = 0; i < get_num_clients() - 1; i++)
+    {
+        for (int j = 0; j < get_num_clients(); j++)
+        {
+            if (list_clients[i].code > list_clients[j].code)
+            {
+                temp = list_clients[i];
+                list_clients[i] = list_clients[j];
+                list_clients[j] = temp;
+            }
+            else if (list_clients[i].code == list_clients[j].code)
+            {
+                (list_clients[j].code)++;
+            };
+        };
+    };
+};
+
+int search_client_by_code(int client_code, struct Client *list_clients)
+{
+    int pos;
+
+    cout<< "\nEnter client code: ";
+    cin>>client_code;
+
+    for (int i = 0; i < get_num_clients(); i++)
+    {
+        if (list_clients[i].code == client_code)
+        {
+            pos = i;
+            break;
+        }
+        else {pos = -1;};
+    };
+
+    return pos;
 };
