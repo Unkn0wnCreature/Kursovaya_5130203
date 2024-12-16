@@ -6,7 +6,7 @@
 
 using namespace std;
 
-static int num_orders = 0; // Количество заказов
+int num_orders = 0; // Количество заказов
 static int order_index = 0; // Уникальный идентификатор заказа
 
 // Меню для управления заказами
