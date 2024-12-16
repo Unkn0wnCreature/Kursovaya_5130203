@@ -22,7 +22,7 @@ void menu_orders(int *opt, Client *list_clients, Book *list_books, Order *list_o
 
         switch (*opt) {
             case 1:
-                insert_order(&list_orders[num_orders], list_clients, list_books);
+                insert_order(&list_orders[get_num_orders()], list_clients, list_books);
                 num_orders++;
                 break;
             case 2:
