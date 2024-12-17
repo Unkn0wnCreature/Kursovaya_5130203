@@ -25,27 +25,21 @@ void menu_orders(int *opt, Client *list_clients, Book *list_books, Order *list_o
         switch (*opt) {
             case 1:
                 insert_order(&list_orders[get_num_orders()], list_clients, list_books);
-                //sort_orders_by_code(list_orders);
+                sort_orders_by_code(list_orders);
                 print_orders_file(list_orders);
                 break;
             case 2:
-                //read_file_order("order.txt", list_orders, list_clients, list_books);
-                //sort_orders_by_code(list_orders);
-                //clean_file("order.txt");
-                //print_orders_file(list_orders);
+                read_file_order("order.txt", list_orders, list_clients, list_books);
+                sort_orders_by_code(list_orders);
+                clean_file("order.txt");
+                print_orders_file(list_orders);
                 read_file_order("order.txt", list_orders, list_clients, list_books);
                 print_list_orders(list_orders, num_orders);
                 break;
             case 3: {
-                int code;
-                cout << "Enter Order Code to delete: ";
-                cin >> code;
-                int index = search_order(list_orders, num_orders, code);
-                if (index != -1) {
-                    delete_order(list_orders, index);
-                } else {
-                    cout << "Order not found.\n";
-                }
+                delete_order(list_orders);
+                clean_file("order.txt");
+                print_list_orders(list_orders, num_orders);
                 break;
             }
             case 4:
@@ -156,18 +150,28 @@ void print_order(const Order &ord) {
 }
 
 // Удаление заказа
-void delete_order(Order *list_orders, int order_index) {
-    for (int i = order_index; i < get_num_orders() - 1; i++) {
-        list_orders[i] = list_orders[i + 1];
+void delete_order(Order *list_orders) {
+    int ind;
+
+    ind = search_order(list_orders);
+    if (ind != -1)
+    {
+        for (int i = ind; i < get_num_orders() - 1; i++) {
+            list_orders[i] = list_orders[i + 1];
+        }
+        num_orders--;
+        cout << "Order deleted successfully.\n";
     }
-    num_orders--;
-    cout << "Order deleted successfully.\n";
+    else {cout<< "Order not found!" <<endl;};
 }
 
 // Поиск заказа по коду
-int search_order(const Order *list_orders, int num_orders, int order_code) {
+int search_order(Order *list_orders) {
+    int ind;
+    cout<< "Enter code of Order: ";
+    cin>>ind;
     for (int i = 0; i < num_orders; i++) {
-        if (list_orders[i].code == order_code) {
+        if (list_orders[i].code == ind) {
             return i;
         }
     }
