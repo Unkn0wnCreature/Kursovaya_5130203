@@ -39,10 +39,9 @@ void menu_clients(int *opt, struct Client *list_clients)
             case 2: //read and print
                 read_file_client("client.txt", list_clients);
                 sort_clients(list_clients);
+                print_list_clients(list_clients);
                 clean_file("client.txt");
                 print_clients_file(list_clients);
-                read_file_client("client.txt", list_clients);
-                print_list_clients(list_clients);
                 break;
             case 3: //update
                 update_client(search_name, list_clients);

@@ -40,10 +40,9 @@ void menu_books(int *opt, struct Book *list_books)
             case 2: //read and print
                 read_file_book("book.txt", list_books);
                 sort_books_by_code(list_books);
+                print_list_books(list_books);
                 clean_file("book.txt");
                 print_books_file(list_books);
-                read_file_book("book.txt", list_books);
-                print_list_books(list_books);
                 break;
             case 3: //update
                 update_book(search_title, list_books);
