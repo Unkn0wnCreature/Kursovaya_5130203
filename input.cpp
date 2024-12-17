@@ -106,7 +106,7 @@ void read_file_order(const char file_name[30], struct Order *list_orders, struct
             int quantity;
             double subtotal;
 
-            if (fscanf(file, " %d %s %d %lf\n", &cod, &book_title, &quantity, &subtotal) != 3) {
+            if (fscanf(file, " %s %d %lf\n", &book_title, &quantity, &subtotal) != 3) {
                 cout << "Error: Could not read order detail " << (j + 1) << " for order " << (i + 1) << ".\n";
                 fclose(file);
                 return;

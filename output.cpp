@@ -132,8 +132,7 @@ void print_file_order(const char file_name[30], struct Order o)
 
         // Сохранение всех деталей заказа
         for (int i = 0; i < o.num_details; i++) {
-            fprintf(file, "  %d %s %d %.2f\n",
-                    o.code,
+            fprintf(file, "  %s %d %.2f\n",
                     o.details[i].book.title,
                     o.details[i].quantity,
                     o.details[i].subtotal);
