@@ -56,8 +56,6 @@ void print_num_clients(const char file_name[30], int num_cl)
 
 void print_clients_file(struct Client *list_clients)
 {
-    clean_file("client.txt");
-
     print_num_clients("client.txt", get_num_clients());
     
     for (int i = 0; i < get_num_clients(); i++)
@@ -105,8 +103,6 @@ void print_num_books(const char file_name[30], int num_books)
 
 void print_books_file(struct Book *list_books)
 {
-    clean_file("book.txt");
-
     print_num_books("book.txt", get_num_books());
     
     for (int i = 0; i < get_num_books(); i++)
@@ -169,8 +165,6 @@ void print_num_orders(const char file_name[30], int num_orders)
 // Функция для записи всех заказов в файл
 void print_orders_file(struct Order *list_orders)
 {
-    clean_file("order.txt");
-
     print_num_orders("order.txt", get_num_orders());
 
     for (int i = 0; i < get_num_orders(); i++)
